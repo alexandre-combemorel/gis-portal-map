@@ -43,7 +43,7 @@ jobs:
       - name: Deploy
         run: |
           cat package.json
-          ./kustomize build ./kustomization
+          ./kustomize build ./kustomization | kubectl apply -f
   # setup-build-publish-deploy:
   #   name: Setup, Build, Publish, and Deploy
   #   runs-on: ubuntu-latest
@@ -81,6 +81,6 @@ jobs:
   #       run: |
   #         gcloud container clusters get-credentials $GKE_CLUSTER --zone $GKE_ZONE --project $GKE_PROJECT
   #         ./kustomize edit set image $REGISTRY_HOSTNAME/$GKE_PROJECT/$IMAGE:${GITHUB_SHA}
-  #         ./kustomize build . | kubectl apply -f ./kustomization/kustomization.yml
+  #         ./kustomize build ./kustomization | kubectl apply -f
   #         kubectl rollout status deployment/$DEPLOYMENT_NAME
   #         kubectl get services -o wide
