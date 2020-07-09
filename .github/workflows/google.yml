@@ -41,11 +41,8 @@ jobs:
       - name: Deploy
         run: |
           ls -l
-          ls -l ./kustomization
-          ./kustomize build kustomization
-          ./kustomize build ./kustomization
-          ./kustomize build kustomization/kustomization.yml
-          ./kustomize build ./kustomization/kustomization.yml
+          ls -l ..
+          # ./kustomize build ./kustomization
   # setup-build-publish-deploy:
   #   name: Setup, Build, Publish, and Deploy
   #   runs-on: ubuntu-latest
