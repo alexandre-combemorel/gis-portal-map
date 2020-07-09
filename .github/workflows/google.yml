@@ -32,13 +32,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Set up kustomize
-      - name: Set up Kustomize
-        run: |
-          curl -o kustomize --location https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
-          chmod u+x ./kustomize
+      # - name: Set up Kustomize
+      #   run: |
+      #     curl -o kustomize --location https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
+      #     chmod u+x ./kustomize
 
       - name: Help
-        run: kubectl --help
+        run: |
+          ls -l /etc/kubernetes/
 
       # Deploy the Docker image to the GKE cluster
       - name: Deploy
