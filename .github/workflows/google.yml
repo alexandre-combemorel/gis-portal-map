@@ -44,7 +44,7 @@ jobs:
       # Deploy the Docker image to the GKE cluster
       - name: Deploy
         run: |
-          kubectl apply -k ./kustomization/kustomization.yml
+          ./kustomize build ./kustomization/kustomization.yml | kubectl apply -f -
   # setup-build-publish-deploy:
   #   name: Setup, Build, Publish, and Deploy
   #   runs-on: ubuntu-latest
