@@ -37,10 +37,13 @@ jobs:
           curl -o kustomize --location https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
           chmod u+x ./kustomize
 
+      - name: Help
+        run: kubectl --help
+
       # Deploy the Docker image to the GKE cluster
       - name: Deploy
         run: |
-          kubectl apply -f ./kustomization/kustomization.yml
+          kubectl apply -k ./kustomization/kustomization.yml
   # setup-build-publish-deploy:
   #   name: Setup, Build, Publish, and Deploy
   #   runs-on: ubuntu-latest
