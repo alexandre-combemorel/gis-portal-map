@@ -40,9 +40,7 @@ jobs:
       # Deploy the Docker image to the GKE cluster
       - name: Deploy
         run: |
-          ls -l
-          ls -l ..
-          ls -l ../..
+          cat package.json
       # ./kustomize build ./kustomization
   # setup-build-publish-deploy:
   #   name: Setup, Build, Publish, and Deploy
